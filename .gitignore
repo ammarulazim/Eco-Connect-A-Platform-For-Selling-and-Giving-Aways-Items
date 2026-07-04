@@ -1,0 +1,12 @@
+# Ignore local environment configuration files
+.env
+config.local.php
+
+# Ignore temporary files and OS cache
+.DS_Store
+Thumbs.db
+*.log
+
+# Ignore IDE specific folders
+.vscode/
+.idea/

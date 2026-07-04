@@ -1,0 +1,602 @@
+/* --- Core Master Setup --- */
+.detail-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 24px 80px 24px;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* --- Clean E-Commerce Grid Design --- */
+.product-showcase-grid {
+    display: grid;
+    /* Two column grid: Left column handles media/desc, Right handles metrics/actions */
+    grid-template-columns: 1fr 440px;
+    gap: 50px;
+    align-items: start;
+    padding: 40px 20px;
+}
+
+/* ==========================================================================
+   LEFT COLUMN: Media Component Stack & Description Window
+   ========================================================================== */
+.showcase-left-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.product-media-stage {
+    position: relative;
+    width: 630px;
+    height: 400px; /* Reduced and restricted picture stage size */
+    background: #0f1e17;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.image-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Keeps standard aspect ratio perfectly intact without warping */
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.product-media-stage:hover img {
+    transform: scale(1.02);
+}
+
+.product-description-container {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.section-subtitle {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.4);
+    margin: 0 0 10px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.description-text {
+    font-size: 1.02rem;
+    color: #d1dfd6;
+    line-height: 1.7;
+    margin: 0;
+}
+
+
+/* ==========================================================================
+   RIGHT COLUMN: Meta Information, Price & Action Buttons Group
+   ========================================================================== */
+.product-essential-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(255, 255, 255, 0.02);
+    width: 500px;
+    height: 620px;
+    padding: 30px;
+    border-radius: 16px;
+}
+
+.panel-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 20px;
+}
+
+.meta-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.category-badge {
+    color: #9ec55e;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stock-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    color: #a4b8ae;
+    font-weight: 500;
+}
+
+.pulse-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.pulse-dot.dot-active {
+    background-color: #2bc98f;
+    box-shadow: 0 0 0 0 rgba(43, 201, 143, 0.7);
+    animation: activePulse 2s infinite;
+}
+
+.pulse-dot.dot-sold {
+    background-color: #eb5e55;
+}
+
+@keyframes activePulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(43, 201, 143, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(43, 201, 143, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(43, 201, 143, 0); }
+}
+
+.product-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 10px 0;
+    color: #ffffff;
+    letter-spacing: -0.5px;
+}
+
+.geo-timestamp-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #a4b8ae;
+    font-size: 0.9rem;
+    margin-bottom: 25px;
+}
+.geo-timestamp-row i { color: #9ec55e; }
+.divider-dot { color: rgba(255, 255, 255, 0.2); }
+
+.price-display-wrapper {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+}
+.currency-tag {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #9ec55e;
+}
+.price-amount {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1;
+}
+.free-pill {
+    background: rgba(158, 197, 94, 0.15);
+    color: #9ec55e;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 6px;
+    margin-left: 12px;
+    align-self: center;
+    border: 1px solid rgba(158, 197, 94, 0.2);
+}
+
+.seller-profile-row {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.seller-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.seller-name-meta .role-title {
+    font-size: 0.75rem;
+    color: #a4b8ae;
+    margin: 0 0 1px 0;
+}
+.seller-name-meta .username-display {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+}
+
+/* Bottom Action Footer Cluster Setup */
+.action-footer-cluster {
+    margin-top: 10px;
+    padding-top: 85px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.action-buttons-group {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+}
+
+.wishlist-form-container {
+    flex: 1;
+}
+
+.chat-now-form {
+    flex: 1;
+}
+
+.btn-checkout {
+    width: 100%;
+    padding: 15px 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-decoration: none;
+}
+
+.btn-buyer-contact {
+    background: #9ec55e;
+    color: #123426;
+    flex: 1;
+}
+.btn-buyer-contact:hover {
+    background: #ffffff;
+    transform: translateY(-2px);
+}
+
+.btn-wishlist {
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.btn-wishlist:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+.btn-wishlist.active {
+    background: rgba(235, 94, 85, 0.1);
+    color: #eb5e55;
+    border-color: #eb5e55;
+}
+
+.btn-owner-manage {
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid #9ec55e;
+}
+.btn-owner-manage:hover {
+    background: rgba(158, 197, 94, 0.08);
+    transform: translateY(-2px);
+}
+
+.guarantee-footer-note {
+    text-align: center;
+    margin-top: 5px;
+}
+.guarantee-footer-note p {
+    font-size: 0.8rem;
+    color: #a4b8ae;
+    margin: 0;
+}
+.guarantee-footer-note i {
+    color: #9ec55e;
+    margin-right: 4px;
+}
+
+.type-ribbon {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    z-index: 5;
+}
+.ribbon-giveaway { background: #9ec55e; color: #123426; }
+.ribbon-premium { background: #123426; color: #ffffff; border: 1px solid rgba(255,255,255,0.15); }
+
+/* --- Full-Screen Lightbox Backdrop --- */
+.lightbox-modal {
+    display: none; 
+    position: fixed;
+    z-index: 9999; /* Ensure it stays completely on top of headers/navigation */
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(10, 20, 15, 0.9); /* Dark theme blending with Eco-Connect */
+    backdrop-filter: blur(8px); /* Modern frosted-glass effect */
+}
+
+/* Lightbox Image Container */
+.lightbox-content {
+    margin: auto;
+    display: block;
+    max-width: 85%;
+    max-height: 80vh;
+    border-radius: 8px;
+    object-fit: contain; /* Prevents cropping, forces full integrity view */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    
+    /* Smooth Pop-in Animation */
+    animation-name: zoomIn;
+    animation-duration: 0.25s;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Close Button (X) */
+.lightbox-close {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    color: #a4b8ae;
+    font-size: 40px;
+    font-weight: 300;
+    transition: 0.2s ease;
+    cursor: pointer;
+    user-select: none;
+}
+
+.lightbox-close:hover {
+    color: #9ec55e; /* Highlight green on hover */
+    transform: scale(1.1);
+}
+
+/* Responsive constraints */
+@media (max-width: 768px) {
+    .lightbox-content {
+        max-width: 95%;
+        padding-top: 20%;
+    }
+    .lightbox-close {
+        top: 15px;
+        right: 20px;
+        font-size: 35px;
+    }
+}
+
+@media (max-width: 900px) {
+    .product-showcase-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .product-media-stage {
+        height: 300px;
+    }
+    .action-buttons-group {
+        flex-direction: column;
+    }
+}
+
+/* ==========================================================================
+   🚨 COMMUNITY ABUSE & ITEM REPORT STYLING
+   ========================================================================== */
+
+/* Report Flag Trigger Button Layout inside Action Cluster */
+.btn-report-flag {
+    width: 100%;
+    background: #eb5e55; /* Solid red background */
+    color: #ffffff; /* White text for clean readability */
+    border: none;
+    padding: 14px 25px; /* Slight padding adjustment for solid weight balance */
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    margin-top: 8px;
+    box-shadow: 0 4px 12px rgba(235, 94, 85, 0.2); /* Soft ambient glow matching your theme */
+}
+
+.btn-report-flag:hover {
+    background: #ff6e65; /* Brighter, vibrant red highlight on hover */
+    box-shadow: 0 6px 16px rgba(235, 94, 85, 0.35);
+    transform: translateY(-2px); /* Matches the interactive pop behavior of your contact button */
+}
+
+/* Modal Overlay Layer matching Lightbox environment */
+.report-modal-overlay {
+    display: none; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(10, 20, 15, 0.85); 
+    backdrop-filter: blur(8px); 
+    z-index: 10005; 
+    align-items: center; 
+    justify-content: center;
+}
+
+/* Frosted Dark Interface Content Card */
+.report-modal-card {
+    background: #0f1e17; 
+    width: 90%; 
+    max-width: 420px; 
+    padding: 30px; 
+    border-radius: 16px; 
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    font-family: 'Poppins', sans-serif;
+    animation: reportPopIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes reportPopIn {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.report-modal-card h3 {
+    margin: 0 0 20px 0; 
+    color: #ffffff; 
+    font-size: 1.25rem; 
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.report-form-group {
+    margin-bottom: 18px;
+}
+
+.report-form-group label {
+    display: block; 
+    margin-bottom: 6px; 
+    font-weight: 600; 
+    color: #a4b8ae; /* Adjusted from #555 to keep it readable against your dark theme backdrop */
+    font-size: 0.9rem;
+}
+
+/* Styled Inputs blending into current aesthetic profile */
+.report-form-input {
+    width: 100%; 
+    padding: 10px; 
+    border-radius: 6px; 
+    border: 1px solid rgba(255, 255, 255, 0.12); /* Clean subtle border match */
+    background: #14261d; /* Solid dark background to retain Eco-Connect's ecosystem palette instead of harsh white */
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-family: inherit;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.report-form-input:focus {
+    outline: none;
+    border-color: #eb5e55; /* Highlights red on user interaction focus states */
+    background: #193024;
+}
+
+textarea.report-form-input {
+    resize: none;
+    margin-bottom: 0; /* Let the modal container handle bottom padding for the final element */
+}
+
+/* Modal Actions Footer Wrapper */
+.report-modal-actions {
+    display: flex; 
+    gap: 12px; 
+    margin-top: 25px;
+}
+
+.btn-report-dismiss {
+    flex: 1; 
+    background: rgba(255, 255, 255, 0.05); 
+    border: 1px solid rgba(255, 255, 255, 0.08); 
+    padding: 12px; 
+    border-radius: 30px; 
+    color: #d1dfd6;
+    cursor: pointer;
+    font-weight: 500;
+    font-family: inherit;
+    transition: background 0.2s ease;
+}
+
+.btn-report-dismiss:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.btn-report-submit {
+    flex: 1; 
+    background: #eb5e55; 
+    border: none; 
+    padding: 12px; 
+    border-radius: 30px; 
+    color: #ffffff;
+    cursor: pointer; 
+    font-weight: 600;
+    font-family: inherit;
+    transition: background 0.2s ease;
+}
+
+.btn-report-submit:hover {
+    background: #ff6e65;
+}
+
+/* ==========================================================================
+   ⚠️ OWNER REPORT WARNING BANNER
+   ========================================================================== */
+.owner-report-warning {
+    background: rgba(235, 140, 55, 0.08);
+    border: 1px solid rgba(235, 140, 55, 0.3);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 5px;
+    font-family: 'Poppins', sans-serif;
+    animation: slideDown 0.3s ease;
+}
+
+.owner-report-warning .warning-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    color: #eb8c37; /* Clean warning amber text */
+}
+
+.owner-report-warning .warning-header i {
+    font-size: 1.2rem;
+}
+
+.owner-report-warning .warning-header h4 {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.owner-report-warning p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #d1dfd6;
+    line-height: 1.6;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-10px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}

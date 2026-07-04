@@ -1,0 +1,194 @@
+.index-wrapper {
+    width: 100%;
+    flex: 1 0 auto;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    min-height: 450px;
+    overflow: hidden;
+    background-color: #121212;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease-in-out, visibility 1s;
+    z-index: 1;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+.carousel-slide::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(18, 52, 38, 0.4), rgba(0, 0, 0, 0.75));
+    z-index: 3;
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: 20%;
+    left: 10%;
+    right: 10%;
+    z-index: 4;
+    color: #ffffff;
+    max-width: 800px;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.carousel-caption h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+}
+
+.carousel-caption p {
+    font-size: 1.25rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+.carousel-btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background-color: #9ec55e;
+    color: #123426;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 30px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.carousel-btn:hover {
+    background-color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: 15px 20px;
+    cursor: pointer;
+    z-index: 5;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.carousel-arrow:hover { background: rgba(158, 197, 94, 0.8); }
+.carousel-arrow.prev { left: 20px; }
+.carousel-arrow.next { right: 20px; }
+
+.carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    display: flex;
+    gap: 10px;
+}
+
+.item-card {
+    background: #1c3529;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.item-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+/*
+.add-item-shortcut-btn {
+    background: transparent;
+    color: #9ec55e;
+    border: 2px dashed #9ec55e;
+    padding: 10px 22px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+style="
+background: #9ec55e; 
+color: #123426; 
+padding: 12px 24px; 
+text-decoration:none; 
+border-radius:30px; 
+font-weight:600;"
+*/
+
+.add-item-shortcut-btn {
+    background: #9ec55e;
+    color:#123426;
+    padding: 12px 24px;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight: 600;
+    border: 2px solid #9ec55e;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.add-item-shortcut-btn:hover {
+    background: #b2db6e;
+    transform: translateY(-2px);
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.dot.active, .dot:hover { background: #9ec55e; }
+
+.welcome-text-block {
+    text-align: center;
+    padding: 60px 20px;
+    color: #ffffff;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

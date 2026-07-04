@@ -1,0 +1,257 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: linear-gradient(black, #123426);
+    background-size: cover;
+    background-position: center;
+}
+
+#navbar {
+    color: white;
+    background-color: #123426;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    height: 120px;
+}
+
+#navbar a:hover {
+    color: #9ec55e; /* Hover effect */
+}
+
+.topright a{
+    color: white;
+    margin: 30px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.topleft {
+    color: white;
+    margin: 0;
+    font-weight: 500;
+    text-decoration: none;
+    display: flex;
+    font-weight: bold;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#logo {
+    width: 40px;
+    height: 40px;
+}
+
+.icon-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 10px;
+    margin: 0 5px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.2s;
+}
+
+.icon-btn:hover {
+    color: #9ec55e;
+    transform: translateY(-1px);
+}
+
+.icon-badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: #ff2d2d;
+    color: white;
+    font-size: 11px;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    padding: 2px;
+    z-index: 999;
+}
+
+.nav-left-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between hamburger button and Eco-Connect logo link */
+}
+
+/* ================= HAMBURGER CONTROLLER TRIGGER ================= */
+.header-hamburger-toggle {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 1.9rem; /* Slightly larger lines for cleaner definition alignment */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    margin-right: 5px; /* Adds space before the logo */
+}
+
+.header-hamburger-toggle:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #9ec55e;
+}
+
+/* ================= FLOATING CANVASES SIDEBAR SYSTEM ================= */
+.header-sidebar {
+    position: fixed;
+    top: 0;
+    left: -320px; /* Kept completely hidden off-canvas natively */
+    width: 300px;
+    height: 100vh;
+    background: #0a1f16; /* Darkened variant of your theme color #123426 */
+    box-shadow: 4px 0 25px rgba(0, 0, 0, 0.6);
+    z-index: 99999; /* Places sidebar cleanly over fixed topbars */
+    display: flex;
+    flex-direction: column;
+    transition: left 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* State triggered instantly via JavaScript classList manipulation */
+.header-sidebar.open-sidebar-canvas {
+    left: 0;
+}
+
+.sidebar-header-box {
+    padding: 24px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sidebar-logo-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #ffffff;
+}
+
+.sidebar-logo-brand img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.sidebar-close-trigger-btn {
+    background: transparent;
+    border: none;
+    color: #9cb1a6;
+    font-size: 1.8rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.sidebar-close-trigger-btn:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* ================= INTERNAL SIDEBAR NAVIGATION LINKS ================= */
+.sidebar-link-navigation-menu {
+    padding: 25px 15px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.sidebar-link-navigation-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar-link-navigation-menu ul li a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 14px 16px;
+    color: #9cb1a6;
+    text-decoration: none;
+    font-size: 0.98rem;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.sidebar-link-navigation-menu ul li a i {
+    font-size: 1.35rem;
+    transition: transform 0.2s ease;
+}
+
+.sidebar-link-navigation-menu ul li a:hover {
+    background: #123426; /* Matches your core theme background color precisely */
+    color: #9ec55e;
+}
+
+.sidebar-link-navigation-menu ul li a:hover i {
+    transform: translateX(4px); /* Tiny nudge outward look on link hover state */
+}
+
+.sidebar-divider-rule {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.05);
+    margin: 15px 10px;
+}
+
+.sidebar-link-navigation-menu ul li .sidebar-logout-link {
+    color: #eb5e55;
+}
+
+.sidebar-link-navigation-menu ul li .sidebar-logout-link:hover {
+    background: rgba(235, 94, 85, 0.08);
+    color: #ff6e65;
+}
+
+/* ================= BACKDROP INTERACTIVE MASK LAYER ================= */
+.header-sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 9998; /* Sits just underneath sidebar stack frame layers */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.header-sidebar-overlay.active-blur-shading {
+    opacity: 1;
+    pointer-events: auto;
+}
